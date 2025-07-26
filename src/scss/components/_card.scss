@@ -1,0 +1,92 @@
+// src/scss/components/_card.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Card Component Styles
+   - Defines a flexible card component for displaying various content blocks.
+   - Utilizes CSS custom properties for consistency in background, padding, and shadow.
+--------------------------------------------------------------------------------
+*/
+
+.card {
+  background-color: var(--card-background); // White background from variables
+  border-radius: var(--border-radius-md); // Consistent rounded corners
+  box-shadow: var(--box-shadow-sm); // Subtle shadow for depth
+  padding: var(--spacing-lg); // Consistent internal spacing (24px)
+  margin-bottom: var(--spacing-xl); // Space below each card (32px)
+  overflow: hidden; // Ensures content doesn't break rounded corners
+
+  // Add specific styling for headings within cards
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0; // Remove top margin from first heading in a card
+    margin-bottom: var(--spacing-md); // Consistent spacing below headings (16px)
+    color: var(--color-heading-primary); // Heading color from variables
+  }
+
+  // Add specific styling for paragraphs within cards
+  p {
+    color: var(--color-text-primary); // Primary text color from variables
+    line-height: 1.6;
+    &:last-child {
+      margin-bottom: 0; // Remove margin from the last paragraph in a card
+    }
+  }
+
+  // Styles for lists within cards
+  ul, ol {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    li {
+      padding-left: var(--spacing-sm); // Indent for list items
+      position: relative; // For custom bullets if needed
+      &::before {
+        // Example for custom bullet - uncomment and style if desired
+        // content: "•";
+        // color: var(--color-primary);
+        // position: absolute;
+        // left: 0;
+        // top: px-to-rem(2); // Adjust based on line-height
+      }
+    }
+  }
+
+  // Enhance image styling within cards
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm); // Slight rounding for images within cards
+    margin-bottom: var(--spacing-md); // Space below image
+  }
+
+  // Horizontal rule for dividers within cards
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-medium-gray); // Light gray line
+    margin: var(--spacing-lg) 0; // Spacing above and below
+  }
+
+  // Modifier for cards with no padding (e.g., if content has its own internal padding)
+  &.no-padding {
+    padding: 0;
+  }
+
+  // Modifier for cards with tighter spacing (e.g., for smaller items)
+  &.compact {
+    padding: var(--spacing-md); // Smaller padding (16px)
+    margin-bottom: var(--spacing-lg); // Smaller margin (24px)
+  }
+
+  // Hover effect for clickable cards (e.g., news articles)
+  &.clickable:hover {
+    transform: translateY(-5px); // Lift effect
+    box-shadow: var(--box-shadow-md); // Slightly more prominent shadow
+    cursor: pointer;
+  }
+
+  // Add a subtle border for cards where a distinction is needed without a strong shadow
+  &.bordered {
+    border: 1px solid var(--color-border-default);
+  }
+}
+
+// End of Card
