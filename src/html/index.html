@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectHub Intranet - Your Daily Briefing</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCXd/XPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../assets/images/connecthub-logo.svg" alt="ConnectHub Logo">
+                <h1>ConnectHub</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Directory</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Help Desk</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <span class="user-name">Welcome, [User Name]!</span>
+                <img src="../assets/images/profile-placeholder.jpg" alt="User Profile Picture" class="profile-pic">
+                <button class="notifications-btn" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <section class="personalized-briefing card">
+            <h2>Your Daily Briefing <span class="current-date"></span></h2>
+            <div class="briefing-grid">
+                <div class="briefing-item tasks">
+                    <h3><i class="fas fa-tasks"></i> Pending Tasks</h3>
+                    <p class="count">7</p>
+                    <a href="#">View All Tasks</a>
+                </div>
+                <div class="briefing-item emails">
+                    <h3><i class="fas fa-envelope"></i> Unread Emails</h3>
+                    <p class="count">24</p>
+                    <a href="#">Go to Inbox</a>
+                </div>
+                <div class="briefing-item upcoming-meetings">
+                    <h3><i class="fas fa-calendar-alt"></i> Upcoming Meetings</h3>
+                    <ul id="upcoming-meetings-list">
+                        <li>No meetings scheduled for today.</li>
+                    </ul>
+                    <a href="#">View Calendar</a>
+                </div>
+                <div class="briefing-item weather">
+                    <h3><i class="fas fa-cloud-sun"></i> Weather - Victorias City</h3>
+                    <p id="weather-display">Loading weather...</p>
+                    </div>
+            </div>
+        </section>
+
+        <section class="news-announcements card">
+            <h2>Dynamic News & Announcements</h2>
+            <div class="news-filters">
+                <select id="news-category-filter">
+                    <option value="all">All Categories</option>
+                    </select>
+                <input type="text" id="news-search" placeholder="Search news...">
+            </div>
+            <div class="news-feed-list">
+                <p class="loading-message">Loading news...</p>
+            </div>
+            <button class="btn-primary load-more-news">Load More</button>
+        </section>
+
+        <section class="quick-links card">
+            <h2>Quick Links & Resources</h2>
+            <div class="links-grid">
+                <a href="#" class="link-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Document Library</span>
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-headset"></i>
+                    <span>IT Helpdesk Portal</span>
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Employee Directory</span>
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance Dashboards</span>
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>HR Forms & Policies</span>
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Company Forum</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="team-updates card">
+            <h2>Team Updates & Shout-outs</h2>
+            <div class="updates-list">
+                <div class="update-item">
+                    <p>"Huge thanks to the **Marketing Team** for their incredible work on the Q3 campaign launch!" <span class="update-date">- July 24, 2025</span></p>
+                </div>
+                <div class="update-item">
+                    <p>"Congratulations to **Alice Johnson** for completing her PMP certification!" <span class="update-date">- July 22, 2025</span></p>
+                </div>
+                <div class="update-item">
+                    <p>"Welcome aboard to our new software engineers: **Mark, Sarah, and David**!" <span class="update-date">- July 18, 2025</span></p>
+                </div>
+            </div>
+            <button class="btn-secondary">Submit a Shout-out</button>
+        </section>
+
+        <section class="upcoming-events card">
+            <h2>Upcoming Company Events</h2>
+            <div class="events-list">
+                <p class="loading-message">Loading events...</p>
+            </div>
+            <button class="btn-primary">View Full Calendar</button>
+        </section>
+
+        <section class="employee-spotlight card">
+            <h2>Employee Spotlight</h2>
+            <div class="spotlight-card">
+                <p class="loading-message">Finding our spotlight employee...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 ConnectHub Intranet. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/briefing.js" defer></script>
+    <script src="../js/news.js" defer></script>
+    <script src="../js/events.js" defer></script>
+    <script src="../js/employees.js" defer></script>
+    <script src="../js/weather.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+</body>
+</html>
