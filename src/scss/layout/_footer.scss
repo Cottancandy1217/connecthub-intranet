@@ -1,0 +1,63 @@
+// src/scss/layout/_footer.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Footer Layout
+   - Defines the structural layout and primary styling of the main footer.
+   - Ensures consistent appearance and responsiveness.
+--------------------------------------------------------------------------------
+*/
+
+.main-footer {
+  background-color: var(--color-darker-gray); // Dark background for the footer
+  color: var(--color-light-gray); // Light gray text for contrast
+  padding: var(--spacing-lg) 0; // Vertical padding (24px top/bottom)
+  font-size: px-to-rem(14); // Smaller font size for footer text
+  text-align: center; // Center align text by default
+
+  .container { // Assuming .container is used within the footer for content width
+    display: flex; // Use flexbox for horizontal alignment of content
+    flex-direction: column; // Stack content vertically by default on smaller screens
+    align-items: center; // Center items horizontally when stacked
+    justify-content: space-between; // Distribute space when items are side-by-side (desktop)
+
+    // On larger screens, arrange content in a row
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row; // Arrange items horizontally
+    }
+  }
+
+  p {
+    margin: 0; // Remove default paragraph margin
+    margin-bottom: var(--spacing-sm); // Add space below copyright on mobile
+    
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 0; // Remove space on desktop
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap; // Allow links to wrap on smaller screens
+    justify-content: center; // Center links when wrapped
+    gap: var(--spacing-md); // Space between links (16px)
+
+    a {
+      color: var(--color-light-gray); // Light gray for footer links
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: var(--color-primary-light); // Lighter primary color on hover
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary-light); // Focus outline consistent with light text
+        outline-offset: 2px;
+        border-radius: var(--border-radius-sm);
+      }
+    }
+  }
+}
+
+// End of Footer
