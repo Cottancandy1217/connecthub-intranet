@@ -1,0 +1,28 @@
+{
+  "name": "connecthub-intranet",
+  "version": "1.0.0",
+  "description": "A modern, responsive intranet homepage built with HTML, Sass, and JavaScript for the Axero Frontend Challenge. Features personalized briefings, dynamic news, quick links, and team updates.",
+  "main": "public/index.html", // Or "src/index.html" if you consider source as main
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "live-server public/",
+    "sass:watch": "sass --watch src/scss/main.scss:public/css/style.css",
+    "build:sass": "sass src/scss/main.scss:public/css/style.css --no-source-map",
+    "build": "npm run build:sass" // A general build command if you add more steps
+  },
+  "keywords": [
+    "intranet",
+    "frontend",
+    "html",
+    "sass",
+    "javascript",
+    "axero-challenge",
+    "responsive-design"
+  ],
+  "author": "Angelee Morquin <sweety.angel1217@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.77.8"
+  }
+}
