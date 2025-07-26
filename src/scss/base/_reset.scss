@@ -1,0 +1,103 @@
+// src/scss/base/_reset.scss
+
+/*
+--------------------------------------------------------------------------------
+1. CSS Reset / Normalize
+   - Modern CSS Reset (inspired by Andy Bell's reset) combined with normalize-like properties.
+   - Aims for a sensible default that provides a strong foundation.
+--------------------------------------------------------------------------------
+*/
+
+// Box sizing defaults to border-box for easier layout calculations
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Remove default margin from body and other common elements
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+figure,
+blockquote,
+dl, dd {
+  margin: 0;
+}
+
+// Set a default font-size, line-height, and font-family for the body
+// Using rem for responsive typography
+body {
+  min-height: 100vh; // Ensure body takes full viewport height
+  line-height: 1.5; // Improve readability
+  -webkit-font-smoothing: antialiased; // Better font rendering on macOS/iOS
+  font-family: var(--font-body, 'Roboto', sans-serif); // Use CSS variables if defined
+  color: var(--text-color, #333); // Default text color
+  background-color: var(--background-color, #f4f7fa); // Default background
+}
+
+// Improve media defaults (images, videos, etc.)
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block; // Remove extra space below images
+  max-width: 100%; // Ensure images are responsive and don't overflow
+}
+
+// Remove built-in form typography styles and inherit from body
+input,
+button,
+textarea,
+select {
+  font: inherit; // Inherit font styles from parent
+}
+
+// Remove default outline from focusable elements for a cleaner look,
+// but ensure accessibility by providing a custom focus style via Sass
+:focus-visible {
+  outline: 2px solid var(--focus-color, #007bff); // Example focus outline
+  outline-offset: 2px;
+}
+
+// Remove text decoration from links and ensure they inherit color
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Reset list styles
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Semantic elements should behave like block elements by default
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+// Optional: Reset table styles (if you plan to use tables)
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Optional: Specific resets for button and input types for consistency
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+// Prevent text selection for elements that are not meant to be selected, e.g., icons
+// Be careful with this, as it impacts usability. Apply selectively.
+// .no-select {
+//   user-select: none;
+// }
+
+// End of Reset
