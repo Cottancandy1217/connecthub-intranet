@@ -1,0 +1,62 @@
+[
+  {
+    "id": "event-1",
+    "title": "Monthly All-Hands Meeting",
+    "description": "Our regular company-wide meeting to discuss recent achievements, upcoming goals, and open Q&A with leadership.",
+    "category": "Company",
+    "date": "2025-08-05",
+    "time": "10:00 AM PST",
+    "location": "Virtual (Microsoft Teams)",
+    "link": "https://teams.microsoft.com/l/meetup-join/..."
+  },
+  {
+    "id": "event-2",
+    "title": "Web Development Workshop: Intro to React",
+    "description": "A beginner-friendly workshop on React.js basics, component creation, and state management. Limited seats available.",
+    "category": "Training",
+    "date": "2025-08-12",
+    "time": "01:00 PM PST",
+    "location": "Training Room 3A & Virtual",
+    "link": "https://intranet.connecthub.com/training/react-workshop"
+  },
+  {
+    "id": "event-3",
+    "title": "Employee Appreciation Day Picnic",
+    "description": "Join us for a fun-filled day of food, games, and camaraderie to celebrate our amazing team!",
+    "category": "Social",
+    "date": "2025-08-19",
+    "time": "11:00 AM - 03:00 PM PST",
+    "location": "City Park Pavilion 2",
+    "link": null
+  },
+  {
+    "id": "event-4",
+    "title": "New Hire Orientation - August Cohort",
+    "description": "Welcome session for all employees who joined ConnectHub in August. Learn about company culture, policies, and benefits.",
+    "category": "HR",
+    "date": "2025-08-26",
+    "time": "09:00 AM PST",
+    "location": "Conference Room 1 & Virtual",
+    "link": "https://intranet.connecthub.com/hr/onboarding"
+  },
+  {
+    "id": "event-5",
+    "title": "Product Brainstorm Session: Q4 Innovations",
+    "description": "Calling all product enthusiasts! Help us brainstorm innovative ideas for Q4 product development.",
+    "category": "Product Development",
+    "date": "2025-09-03",
+    "time": "02:00 PM PST",
+    "location": "Innovation Lab",
+    "link": null
+  },
+  {
+    "id": "event-6",
+    "title": "ConnectHub Annual Charity Run",
+    "description": "Lace up your running shoes for our annual charity run supporting local community initiatives.",
+    "category": "Community",
+    "date": "2025-09-15",
+    "time": "08:00 AM PST",
+    "location": "Downtown Waterfront Path",
+    "link": "https://intranet.connecthub.com/charity-run-signup"
+  }
+]
