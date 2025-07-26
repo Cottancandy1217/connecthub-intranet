@@ -1,0 +1,174 @@
+// src/scss/components/_button.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Button Component Styles
+   - Defines base button styles and variations (primary, secondary, etc.).
+   - Utilizes CSS custom properties for color and spacing consistency.
+--------------------------------------------------------------------------------
+*/
+
+// Base button styles
+.btn,
+button { // Apply to both a generic .btn class and the native <button> element
+  display: inline-flex; // Allows for icon alongside text
+  align-items: center; // Vertically center content (text and icon)
+  justify-content: center; // Horizontally center content
+  padding: var(--spacing-sm) var(--spacing-md); // Using spacing variables (12px 16px)
+  border: 1px solid transparent; // Consistent border for all buttons, initially transparent
+  border-radius: var(--border-radius-sm); // Small border-radius for slightly rounded corners
+  font-size: var(--spacing-md); // 16px font size
+  font-weight: 600; // Semi-bold text
+  line-height: 1; // Prevent extra spacing issues
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; // Ensure no default underline on <a> tags used as buttons
+  user-select: none; // Prevent text selection on click
+  transition: all 0.3s ease-in-out; // Smooth transitions for all properties
+
+  // Ensure button text color is inherited by default unless overridden by specific variants
+  color: inherit;
+}
+
+// --- Button Variants ---
+
+// Primary Button
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white); // White text on primary background
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+  }
+
+  &:active {
+    background-color: darken(var(--color-primary-dark), 5%); // Slightly darker on click
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+// Secondary Button
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-secondary-dark);
+    border-color: var(--color-secondary-dark);
+  }
+
+  &:active {
+    background-color: darken(var(--color-secondary-dark), 5%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+// Outline Button (Primary Outline)
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &:active {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+// Danger Button (for destructive actions)
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: darken(var(--color-danger), 10%);
+    border-color: darken(var(--color-danger), 10%);
+  }
+
+  &:active {
+    background-color: darken(var(--color-danger), 15%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+// Success Button (for positive actions)
+.btn-success {
+  background-color: var(--color-accent); // Using accent green from variables
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+  }
+
+  &:active {
+    background-color: darken(var(--color-accent-dark), 5%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+// --- Button Sizes (Optional) ---
+.btn-sm {
+  padding: var(--spacing-xs) var(--spacing-sm); // 8px 12px
+  font-size: px-to-rem(14); // Smaller font size
+}
+
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl); // 16px 32px
+  font-size: px-to-rem(18); // Larger font size
+}
+
+// --- Button States ---
+
+// Disabled state
+.btn:disabled,
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none; // Prevents hover/active states on disabled buttons
+}
+
+// Button with icon
+.btn-icon {
+  .fas, .far, .fab { // Font Awesome icons
+    margin-right: var(--spacing-xs); // Space between icon and text
+  }
+  // If only an icon and no text, adjust padding
+  &.icon-only {
+    padding: var(--spacing-sm); // Equal padding for a square/circle button
+    border-radius: var(--border-radius-lg); // Make it more circular if desired
+    .fas, .far, .fab {
+      margin-right: 0; // No margin if no text
+    }
+  }
+}
+
+// End of Button
