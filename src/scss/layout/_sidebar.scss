@@ -1,0 +1,110 @@
+// src/scss/layout/_sidebar.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Sidebar Layout
+   - Defines the structural layout and primary styling for a sidebar.
+   - Designed to work alongside main content, typically in a grid or flex context.
+--------------------------------------------------------------------------------
+*/
+
+.sidebar {
+  background-color: var(--card-background); // White background, consistent with cards
+  border-radius: var(--border-radius-md); // Rounded corners, consistent with cards
+  box-shadow: var(--box-shadow-sm); // Subtle shadow, consistent with cards
+  padding: var(--spacing-lg); // Consistent internal spacing
+  margin-bottom: var(--spacing-xl); // Space below if stacked, or for responsive layout
+
+  // Default width for larger screens (adjust based on your main content grid)
+  width: px-to-rem(280); // Example fixed width
+
+  // If used in a grid layout (e.g., main-content with a sidebar)
+  // This will be handled by the grid containing the sidebar and main content.
+  // For instance, if your main content uses a grid:
+  // .main-content-grid {
+  //   display: grid;
+  //   grid-template-columns: 280px 1fr; // Sidebar width and then remaining space
+  //   gap: var(--spacing-xl); // Gap between sidebar and main content
+  // }
+  // Then the sidebar itself just needs its width.
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-heading-primary);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: var(--spacing-md); // Space below list if followed by other content
+  }
+
+  li {
+    margin-bottom: var(--spacing-sm); // Space between list items
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    display: block; // Make entire list item area clickable for navigation
+    padding: var(--spacing-xs) var(--spacing-sm); // Padding for sidebar links
+    color: var(--color-text-primary);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-radius: var(--border-radius-sm); // Slight rounding for hover state
+
+    &:hover {
+      background-color: var(--color-light-gray); // Light background on hover
+      color: var(--color-primary); // Primary color for text on hover
+    }
+
+    &.active {
+      background-color: var(--color-primary-light); // Light primary background for active link
+      color: var(--color-primary-dark); // Darker primary color for active text
+      font-weight: 600;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-focus-outline);
+      outline-offset: 2px;
+      border-radius: var(--border-radius-sm);
+    }
+  }
+
+  // Styles for a "widget" within the sidebar (e.g., small cards)
+  .sidebar-widget {
+    background-color: var(--background-color); // Slightly different background
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--color-border-light); // Subtle border
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-heading-primary);
+    }
+
+    p {
+      font-size: px-to-rem(14);
+      color: var(--color-text-secondary);
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: $breakpoint-md) {
+    width: 100%; // Sidebar takes full width on smaller screens
+    margin-bottom: var(--spacing-xl); // Ensure space when stacked
+    padding: var(--spacing-md); // Slightly less padding for smaller screens
+    order: -1; // Optional: place sidebar *above* main content on mobile
+
+    // If your main content uses a grid, you'd adjust it here too:
+    // .main-content-grid {
+    //   grid-template-columns: 1fr; // Single column layout
+    // }
+  }
+}
+
+// End of Sidebar
