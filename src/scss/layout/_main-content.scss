@@ -1,0 +1,66 @@
+// src/scss/layout/_main-content.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Main Content Layout
+   - Defines the overall layout and spacing for the primary content area of the application.
+   - Ensures consistent vertical rhythm between main sections.
+--------------------------------------------------------------------------------
+*/
+
+.main-content {
+  padding-top: var(--spacing-xl); // Top padding to separate from header
+  padding-bottom: var(--spacing-xxl); // More bottom padding to separate from footer
+  flex-grow: 1; // Allows main content to take up available vertical space (for sticky footer scenarios)
+
+  // Target direct child sections within the main content area
+  // This helps maintain consistent vertical spacing between major blocks.
+  > section {
+    // Each section (like .personalized-briefing, .news-announcements, etc.)
+    // already has margin-bottom: var(--spacing-xl) from its .card class.
+    // So, no extra margin needed here unless you have non-card sections.
+
+    // Example if you had non-card sections and needed spacing:
+    // &:not(.card) {
+    //   margin-bottom: var(--spacing-xl);
+    // }
+  }
+
+  // General styling for lists that might appear in main content areas
+  ul:not([class]), ol:not([class]) { // Target lists that don't have specific classes
+    margin-bottom: var(--spacing-md);
+    li {
+      margin-bottom: var(--spacing-xs);
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: $breakpoint-md) {
+    padding-top: var(--spacing-lg); // Slightly less padding on top
+    padding-bottom: var(--spacing-xl); // Slightly less padding on bottom
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-top: var(--spacing-md); // Even less padding for small mobile screens
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
+// If you introduce a main layout grid (e.g., with a sidebar)
+// you'd typically define that in a separate file like _main-layout.scss
+// and this .main-content might become a child within that grid's main area.
+
+// Example of how .main-content would fit into a grid-based layout:
+// Assuming a structure like:
+// <div class="main-layout-grid">
+//   <aside class="sidebar"></aside>
+//   <main class="main-content-area">
+//     <div class="main-content container"> // This is our .main-content
+//       ... sections ...
+//     </div>
+//   </main>
+// </div>
+// In this case, .main-content-area would manage the 1fr column,
+// and .main-content would provide internal padding and spacing.
+
+// End of Main Content
