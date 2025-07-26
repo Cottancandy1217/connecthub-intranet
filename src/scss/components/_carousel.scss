@@ -1,0 +1,142 @@
+// src/scss/components/_carousel.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Carousel Component Styles
+   - Defines styles for a reusable image/content carousel.
+   - Includes styles for carousel container, slides, and navigation elements.
+--------------------------------------------------------------------------------
+*/
+
+.carousel {
+  position: relative; // For positioning internal elements (arrows, dots)
+  overflow: hidden; // Hide overflowing slides
+  width: 100%;
+  border-radius: var(--border-radius-md); // Consistent with cards
+  box-shadow: var(--box-shadow-sm); // Subtle shadow
+  margin-bottom: var(--spacing-xl); // Space below the carousel
+
+  // Carousel track/inner container that holds all slides
+  .carousel-track {
+    display: flex; // Arrange slides horizontally
+    transition: transform 0.5s ease-in-out; // Smooth slide transition
+    will-change: transform; // Optimize for animation
+
+    // Individual carousel slide
+    .carousel-slide {
+      flex: 0 0 100%; // Each slide takes full width, no shrinking/growing
+      width: 100%;
+      position: relative; // For content positioning within slide
+      // min-height: px-to-rem(250); // Minimum height for slides to prevent collapse (adjust as needed)
+      // display: flex; // If content needs to be centered
+      // align-items: center;
+      // justify-content: center;
+      // text-align: center;
+
+      img {
+        width: 100%;
+        height: px-to-rem(300); // Fixed height for carousel images (adjust as needed)
+        object-fit: cover; // Ensure images cover the area without distortion
+        display: block; // Remove extra space below images
+        border-radius: var(--border-radius-md); // Apply radius to images as well
+      }
+
+      .slide-content {
+        position: absolute;
+        bottom: var(--spacing-lg);
+        left: var(--spacing-lg);
+        right: var(--spacing-lg);
+        background-color: rgba(var(--color-black-rgb), 0.6); // Semi-transparent overlay
+        color: var(--color-white);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+
+        h3 {
+          margin-top: 0;
+          margin-bottom: var(--spacing-sm);
+          color: var(--color-white); // White heading on dark overlay
+        }
+
+        p {
+          margin-bottom: 0;
+          font-size: px-to-rem(14);
+        }
+      }
+    }
+  }
+
+  // Navigation Arrows (Prev/Next)
+  .carousel-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(var(--color-darker-gray-rgb), 0.7); // Dark semi-transparent background
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%; // Circular buttons
+    width: px-to-rem(40);
+    height: px-to-rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: px-to-rem(20);
+    cursor: pointer;
+    z-index: $z-index-base + 1; // Ensure arrows are above slides
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(var(--color-darker-gray-rgb), 0.9);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--color-focus-outline);
+      outline-offset: 2px;
+    }
+
+    &.prev {
+      left: var(--spacing-md);
+    }
+
+    &.next {
+      right: var(--spacing-md);
+    }
+
+    // Hide arrows on very small screens if desired
+    @media (max-width: $breakpoint-xs) {
+      display: none;
+    }
+  }
+
+  // Pagination Dots
+  .carousel-pagination {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-xs); // Space between dots
+    z-index: $z-index-base + 1; // Ensure dots are above slides
+
+    .pagination-dot {
+      width: px-to-rem(10);
+      height: px-to-rem(10);
+      background-color: rgba(var(--color-white-rgb), 0.5); // Semi-transparent white
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+      &:hover {
+        background-color: rgba(var(--color-white-rgb), 0.8);
+      }
+      &.active {
+        background-color: var(--color-white); // Solid white for active dot
+        transform: scale(1.2); // Slightly larger active dot
+      }
+      &:focus-visible {
+        outline: 2px solid var(--color-focus-outline);
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+// End of Carousel
