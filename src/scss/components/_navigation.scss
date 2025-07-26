@@ -1,0 +1,174 @@
+// src/scss/components/_navigation.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Navigation Component Styles
+   - Defines styles for the main navigation and related header elements.
+   - Includes styles for desktop and prepares for mobile/responsive navigation.
+--------------------------------------------------------------------------------
+*/
+
+.main-nav {
+  // Desktop Navigation Styles
+  ul {
+    display: flex; // Arrange list items horizontally
+    gap: var(--spacing-lg); // Space between navigation items (24px)
+    list-style: none; // Remove default list bullets (already done by reset, but reinforce)
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    a {
+      display: block; // Make the whole link area clickable
+      padding: var(--spacing-sm) var(--spacing-xs); // Padding around text (12px 8px)
+      color: var(--color-text-primary); // Default link color
+      font-weight: 500; // Slightly bolder than body text
+      transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out; // Smooth transitions
+
+      &:hover {
+        color: var(--color-primary); // Highlight color on hover
+      }
+
+      &.active {
+        color: var(--color-primary); // Active link color
+        font-weight: 700; // Bold for active link
+        border-bottom: 2px solid var(--color-primary); // Underline for active link
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-focus-outline);
+        outline-offset: 2px;
+        border-radius: var(--border-radius-sm); // Add slight radius to focus outline
+      }
+    }
+  }
+
+  // Mobile Navigation (initially hidden on desktop, revealed by JS)
+  // This will be transformed significantly by media queries later
+  @media (max-width: $breakpoint-md) { // Example breakpoint, adjust as needed
+    position: absolute; // Position relative to header
+    top: 100%; // Below the header
+    left: 0;
+    width: 100%;
+    background-color: var(--card-background); // Background for mobile menu
+    box-shadow: var(--box-shadow-md); // Shadow for mobile menu
+    flex-direction: column; // Stack menu items vertically
+    transform: translateY(-100%); // Initially hide it by moving up
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+    z-index: $z-index-dropdown; // Ensure it's above content
+
+    &.active { // Class added by JavaScript when menu is open
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    ul {
+      flex-direction: column; // Stack menu items vertically
+      gap: 0; // Remove gap for vertical stacking
+      padding: var(--spacing-md) 0; // Padding inside the mobile menu
+    }
+
+    li {
+      border-bottom: 1px solid var(--color-border-light); // Separator for mobile links
+      &:last-child {
+        border-bottom: none;
+      }
+      a {
+        padding: var(--spacing-md) var(--spacing-lg); // More padding for mobile links
+        &:hover {
+          background-color: var(--color-light-gray); // Highlight background on hover for mobile
+        }
+      }
+    }
+  }
+}
+
+// User Profile Section
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md); // Space between elements (16px)
+
+  .user-name {
+    font-weight: 500;
+    color: var(--color-text-primary);
+    // Hide name on smaller screens
+    @media (max-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+
+  .profile-pic {
+    width: px-to-rem(40); // Size of profile picture
+    height: px-to-rem(40);
+    border-radius: 50%; // Make it circular
+    object-fit: cover; // Ensure image fills space without distortion
+    border: 2px solid var(--color-primary-light); // Subtle border
+  }
+
+  .notifications-btn {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    padding: var(--spacing-xs); // Padding for clickable area
+    font-size: px-to-rem(22); // Icon size
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--color-focus-outline);
+      outline-offset: 2px;
+      border-radius: var(--border-radius-sm);
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px; // Position above icon
+      right: -5px; // Position to the right of icon
+      background-color: var(--color-danger); // Red badge
+      color: var(--color-white);
+      font-size: px-to-rem(10); // Small font size
+      font-weight: 700;
+      min-width: px-to-rem(18); // Minimum width to ensure it's round
+      height: px-to-rem(18);
+      border-radius: 50%; // Circular badge
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px; // Small padding inside badge
+    }
+  }
+
+  .menu-toggle {
+    display: none; // Hidden by default on desktop
+    background-color: transparent;
+    border: none;
+    padding: var(--spacing-xs);
+    font-size: px-to-rem(24); // Hamburger icon size
+    color: var(--color-text-primary);
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--color-focus-outline);
+      outline-offset: 2px;
+      border-radius: var(--border-radius-sm);
+    }
+
+    // Show on smaller screens
+    @media (max-width: $breakpoint-md) {
+      display: block; // Show hamburger menu button
+    }
+  }
+}
+
+// End of Navigation
