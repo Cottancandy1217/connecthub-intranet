@@ -1,0 +1,56 @@
+// src/scss/pages/style.scss
+
+/*
+--------------------------------------------------------------------------------
+ConnectHub Intranet - Main Stylesheet
+Generated: July 26, 2025 - 11:38 PM PST
+Location: Victorias City, Western Visayas, Philippines
+
+This is the main Sass file that imports all other partials.
+Order of imports is crucial for CSS specificity and cascade.
+--------------------------------------------------------------------------------
+*/
+
+// 1. Base (Foundational styles, variables, resets)
+//    - Variables should always come first as other files depend on them.
+//    - Reset/normalize should be next to provide a clean slate.
+//    - Typography defines global text styles.
+//    - Utilities for common, single-purpose helper classes.
+@import '../base/variables';
+@import '../base/reset';
+@import '../base/typography';
+// @import '../base/utilities'; // Uncomment if you create a utilities file
+
+// 2. Layout (Structural components like header, footer, main content areas)
+//    - Container defines max-width wrappers.
+//    - Header, main-content, footer define top-level section layouts.
+//    - Sidebar and main-layout would define specific grid structures if used.
+@import '../layout/container';
+@import '../layout/header';
+@import '../layout/main-content';
+@import '../layout/footer';
+@import '../layout/sidebar'; // Assuming you will implement a sidebar
+// @import '../layout/main-layout'; // Uncomment if you create a main-layout grid file for sidebar integration
+
+// 3. Components (Reusable UI modules like buttons, cards, navigation, carousel)
+//    - Order here is less critical than base/layout, but logically grouping is good.
+@import '../components/button';
+@import '../components/card';
+@import '../components/navigation';
+@import '../components/carousel';
+// @import '../components/form'; // Uncomment if you create a form component
+// @import '../components/modal'; // Uncomment if you create a modal component
+// ... add other component imports as you create them
+
+// 4. Page-specific Styles (Unique layouts or overrides for individual pages)
+//    - These should come last to ensure they can override generic styles.
+//    - Only include if a page has truly unique styling not covered by components/layout.
+@import './home'; // Styles specific to the homepage
+
+// 5. Themes (If you implement multiple color schemes or dark mode)
+//    - Often defined using CSS Custom Properties that override base variables.
+// @import '../themes/dark-mode'; // Uncomment if you create a dark mode theme
+
+// 6. Vendor Overrides / Third-Party Styles (If you need to adjust external libraries)
+//    - Always place these last to ensure your overrides apply.
+// @import '../vendor/swiper-overrides'; // Example: overriding Swiper.js styles
