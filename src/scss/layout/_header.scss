@@ -1,0 +1,82 @@
+// src/scss/layout/_header.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Header Layout
+   - Defines the structural layout and primary styling of the main header.
+   - Uses Flexbox for alignment of logo, navigation, and user profile.
+--------------------------------------------------------------------------------
+*/
+
+.main-header {
+  background-color: var(--color-white); // White background for the header
+  border-bottom: 1px solid var(--color-medium-gray); // Subtle separator line
+  padding: var(--spacing-md) 0; // Vertical padding (16px top/bottom)
+  position: sticky; // Makes header sticky to the top when scrolling
+  top: 0; // Stick to the top of the viewport
+  z-index: $z-index-sticky; // Ensure header is above most content
+
+  .header-content {
+    display: flex; // Use Flexbox to align direct children
+    align-items: center; // Vertically center items
+    justify-content: space-between; // Distribute space between logo, nav, user-profile
+    position: relative; // For positioning mobile nav overlay
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm); // Space between logo image and text
+
+    img {
+      height: px-to-rem(40); // Fixed height for the logo image
+      width: auto; // Maintain aspect ratio
+    }
+
+    h1 {
+      font-family: var(--font-family-heading);
+      font-size: px-to-rem(28); // Size for the brand name
+      font-weight: 700;
+      color: var(--color-heading-primary);
+      margin: 0; // Override default heading margin
+    }
+
+    // Hide text logo on smaller screens to prioritize space
+    @media (max-width: $breakpoint-sm) {
+      h1 {
+        display: none;
+      }
+    }
+  }
+
+  // Adjustments for Main Navigation on smaller screens
+  .main-nav {
+    flex-grow: 1; // Allow navigation to take up available space
+    display: flex; // Ensure it's always a flex container
+    justify-content: center; // Center navigation links on desktop
+
+    @media (max-width: $breakpoint-md) {
+      // On medium screens and below, navigation is handled by JS for mobile menu.
+      // Its visual properties are defined in _navigation.scss.
+      // We just need to ensure it's hidden from the normal flow on small screens.
+      display: none; // Hide desktop nav; mobile nav will be toggled by JS
+    }
+  }
+
+  // User profile section layout already defined in _navigation.scss,
+  // but ensure any global overrides or specific alignments here.
+  .user-profile {
+    // No specific layout adjustments needed here beyond what's in _navigation.scss
+    // because it's already a flex container itself and is positioned correctly
+    // by the .header-content's justify-content: space-between.
+
+    // Ensure menu toggle button is visible when main-nav is hidden
+    @media (max-width: $breakpoint-md) {
+      .menu-toggle {
+        display: block; // Show the hamburger icon
+      }
+    }
+  }
+}
+
+// End of Header
