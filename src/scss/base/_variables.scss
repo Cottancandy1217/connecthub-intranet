@@ -1,0 +1,114 @@
+// src/scss/base/_variables.scss
+
+/*
+--------------------------------------------------------------------------------
+1. Design System Variables (CSS Custom Properties via Sass)
+   - Centralized source of truth for design tokens.
+   - Enables easy theming and consistent styling across the application.
+--------------------------------------------------------------------------------
+*/
+
+// --- Current Context ---
+// Useful for dynamic elements or placeholders that might reference current time/location
+// Note: These are for reference/placeholder within SCSS. Dynamic JS should handle live data.
+$current-date: "July 26, 2025";
+$current-time: "10:53 PM PST";
+$current-location: "Victorias City, Western Visayas, Philippines";
+
+
+// --- Colors ---
+// Primary Brand Colors
+:root {
+  --color-primary: #007bff;          // A vibrant blue for main actions, links, highlights
+  --color-primary-dark: #0056b3;     // Darker shade for hover/active states
+  --color-primary-light: #e6f2ff;    // Lighter shade for backgrounds or subtle highlights
+
+  // Secondary/Accent Colors
+  --color-secondary: #6c757d;        // Muted grey for secondary actions, borders
+  --color-secondary-dark: #545b62;
+  --color-accent: #28a745;           // A green for success messages, positive indicators
+  --color-accent-dark: #218838;
+  --color-warning: #ffc107;          // Yellow for warnings
+  --color-danger: #dc3545;           // Red for errors, critical actions
+
+  // Neutral Colors (Grayscale)
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-light-gray: #f8f9fa;      // Very light background, subtle borders
+  --color-medium-gray: #e9ecef;     // Default border, separator
+  --color-dark-gray: #6c757d;       // Subdued text, icons (same as --color-secondary)
+  --color-darker-gray: #343a40;     // Darker text, backgrounds
+
+  // Text Colors
+  --color-text-primary: #333333;      // Main body text
+  --color-text-secondary: #555555;    // Less important text, descriptions
+  --color-text-light: #aaaaaa;       // Very light text, hints
+  --color-heading-primary: #222222;  // Headings color (slightly darker than text-primary)
+
+  // Link Colors
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-dark);
+  --color-focus-outline: var(--color-primary); // Consistent focus outline color
+
+  // Backgrounds & Surfaces
+  --background-color: #f4f7fa;        // Overall page background
+  --card-background: var(--color-white); // Background for cards/panels
+
+  // Border Colors
+  --color-border-default: var(--color-medium-gray);
+  --color-border-light: var(--color-light-gray);
+}
+
+
+// --- Typography ---
+// Sass variables for font families (used in _typography.scss)
+// These are not CSS custom properties because font-family values are complex for variables.
+$font-family-body: 'Roboto', sans-serif;
+$font-family-heading: 'Lato', sans-serif;
+
+
+// --- Spacing (using a consistent scale) ---
+// Define a consistent spacing scale in rems or pixels
+:root {
+  --spacing-xxs: 0.25rem; // 4px
+  --spacing-xs: 0.5rem;   // 8px
+  --spacing-sm: 0.75rem;  // 12px
+  --spacing-md: 1rem;     // 16px (base spacing unit)
+  --spacing-lg: 1.5rem;   // 24px
+  --spacing-xl: 2rem;     // 32px
+  --spacing-xxl: 3rem;    // 48px
+  --spacing-xxxl: 4rem;   // 64px
+}
+
+
+// --- Borders & Shadows ---
+:root {
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --box-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --box-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+// --- Breakpoints (for responsive design) ---
+// Define breakpoints using Sass variables (less useful as CSS custom properties)
+$breakpoint-xs: 480px;  // Extra small devices (e.g., phones in portrait)
+$breakpoint-sm: 768px;  // Small devices (e.g., tablets in portrait, larger phones)
+$breakpoint-md: 992px;  // Medium devices (e.g., tablets in landscape, small laptops)
+$breakpoint-lg: 1200px; // Large devices (e.g., desktops)
+$breakpoint-xl: 1440px; // Extra large desktops
+
+
+// --- Z-index Stack (for layering elements) ---
+// Use Sass variables for explicit layering values
+$z-index-base: 1;
+$z-index-dropdown: 100;
+$z-index-sticky: 150;
+$z-index-overlay: 200; // For modals, overlays
+$z-index-modal: 250;
+
+
+// End of Variables
