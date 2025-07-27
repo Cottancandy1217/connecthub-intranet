@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ConnectHub Intranet - Your central hub for company news, resources, and connections.">
+    <meta name="keywords" content="intranet, ConnectHub, company portal, internal communication, employee resources, news">
+    <meta name="author" content="ConnectHub Team">
+
+    <title>ConnectHub Intranet - Home</title>
+
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="./images/logo.png" alt="ConnectHub Logo">
+                <h1>ConnectHub</h1>
+            </a>
+
+            <nav class="main-nav" id="main-navigation" aria-hidden="true">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-profile">
+                <div class="global-search">
+                    <input type="text" id="global-search-input" placeholder="Search ConnectHub...">
+                    <button id="global-search-button" class="btn btn-icon" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="user-info">
+                    <span>Welcome, John!</span>
+                    <img src="./images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                </div>
+                <button class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <section class="carousel card">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="./images/placeholder-banner-1.jpg" alt="Company Announcement 1">
+                    <div class="slide-content">
+                        <h2>Welcome to ConnectHub!</h2>
+                        <p>Your one-stop portal for all company news, resources, and colleagues.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./images/placeholder-banner-2.jpg" alt="Company Announcement 2">
+                    <div class="slide-content">
+                        <h2>New HR Policies Released</h2>
+                        <p>Check out the updated policies on leave, benefits, and remote work, effective August 1st.</p>
+                        <a href="#" class="btn btn-secondary">Read Policies</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./images/placeholder-banner-3.jpg" alt="Company Announcement 3">
+                    <div class="slide-content">
+                        <h2>Employee Spotlight: Jane Doe</h2>
+                        <p>Meet Jane Doe, our Senior Software Engineer, and learn about her journey.</p>
+                        <a href="#" class="btn btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-nav-arrow prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-nav-arrow next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-pagination" role="tablist">
+                </div>
+        </section>
+
+        <section class="personalized-briefing card">
+            <h2>Your Briefing</h2>
+            <div class="briefing-grid">
+                <div class="briefing-item">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Open Tasks</h3>
+                    <div class="count" id="tasks-count">--</div>
+                    <a href="#tasks">View All</a>
+                </div>
+                <div class="briefing-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Unread Emails</h3>
+                    <div class="count" id="emails-count">--</div>
+                    <a href="#emails">Check Inbox</a>
+                </div>
+                <div class="briefing-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Upcoming Meetings</h3>
+                    <ul id="upcoming-meetings-list">
+                        <li>Loading...</li>
+                    </ul>
+                    <a href="#meetings">Full Schedule</a>
+                </div>
+                <div class="briefing-item">
+                    <i class="wi wi-day-sunny"></i> <h3>Weather</h3>
+                    <div id="weather-display">Loading...</div>
+                    <a href="#weather-forecast">5-Day Forecast</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-announcements card">
+            <h2>News & Announcements</h2>
+            <div class="news-filters">
+                <select id="news-category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="announcements">Announcements</option>
+                    <option value="hr">HR</option>
+                    <option value="finance">Finance</option>
+                    <option value="it">IT</option>
+                    <option value="company culture">Company Culture</option>
+                </select>
+                <input type="text" id="news-search" placeholder="Search news...">
+            </div>
+            <div class="news-feed-list">
+                <p>Loading news...</p>
+            </div>
+            <button class="btn btn-secondary load-more-news">Load More News</button>
+        </section>
+
+        <section class="quick-links card">
+            <h2>Quick Links</h2>
+            <div class="links-grid">
+                <p>Loading quick links...</p>
+            </div>
+        </section>
+
+        <section class="team-updates card">
+            <h2>Team Updates</h2>
+            <ul class="updates-list">
+                <li>Loading updates...</li>
+            </ul>
+            <button class="btn btn-secondary">Submit a Shout-out</button>
+        </section>
+
+        <section class="upcoming-events card">
+            <h2>Upcoming Events</h2>
+            <div class="events-list">
+                <p>Loading events...</p>
+            </div>
+            <button class="btn btn-primary">View All Events</button>
+        </section>
+
+        <section class="employee-spotlight card">
+            <h2>Employee Spotlight</h2>
+            <div class="spotlight-card">
+                <p>Loading spotlight...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> ConnectHub Intranet. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#support">Support</a>
+                <a href="#careers">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/components/carousel.js"></script>
+    <script src="./js/components/tabs.js"></script>
+
+    <script type="module" src="./js/pages/homePage.js"></script>
+
+    <script src="./js/main.js"></script>
+
+    <script>
+        // Set current year in footer dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
